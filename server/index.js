@@ -2,6 +2,7 @@
 
 const express = require('express');
 const logger = require('./logger');
+const bodyParser = require('body-parser');
 
 const argv = require('./argv');
 const port = require('./port');
@@ -14,8 +15,20 @@ const ngrok =
 const { resolve } = require('path');
 const app = express();
 
+const { addString, getAllStrings } = require('./stringStorage.js');
+
+// Configure body parser
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 // If you need a backend, e.g. an API, add your custom backend-specific middleware here
 // app.use('/api', myApi);
+
+// Endpoint to fetch strings from stringStorage
+app.get('/strings', getAllStrings);
+
+// Endpoint to post user-input string to stringStorage
+app.post('/string', addString);
 
 // In production we need to pass these values in instead of relying on webpack
 setup(app, {
