@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import NavigationItems from '../NavigationItems/NavigationItems';
+
 const toolbar = () => (
   <ToolbarWrapper>
-    <h1>Heres the Toolbar</h1>
+    <NavigationItems />
   </ToolbarWrapper>
 );
 
@@ -16,6 +18,8 @@ const ToolbarWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: #cc99ff;
+  border-bottom: 2px solid black;
 `;
 
 export default toolbar;
