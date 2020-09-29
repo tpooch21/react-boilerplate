@@ -20,7 +20,7 @@ export default function App() {
   return (
     <div>
       <Toolbar />
-      <main style={{ marginTop: '100px' }}>
+      <main style={{ marginTop: '60px' }}>
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route component={NotFoundPage} />

@@ -12,7 +12,7 @@ const navigationItems = () => (
     </NavItem>
     <NavItem>
       <NavLink to="/x" style={{ color: 'white', textDecoration: 'none' }}>
-        Not Found
+        Add String
       </NavLink>
     </NavItem>
   </NavItemList>
