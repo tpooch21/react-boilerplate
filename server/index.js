@@ -3,6 +3,7 @@
 const express = require('express');
 const logger = require('./logger');
 const bodyParser = require('body-parser');
+const morgan = require('morgan');
 
 const argv = require('./argv');
 const port = require('./port');
@@ -20,6 +21,8 @@ const { addString, getAllStrings } = require('./stringStorage.js');
 // Configure body parser.
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.use(morgan('tiny'));
 
 // If you need a backend, e.g. an API, add your custom backend-specific middleware here
 // app.use('/api', myApi);

@@ -5,7 +5,7 @@ import { LOAD_STRINGS } from './constants';
 import { loadStringsSuccess } from './actions';
 
 export function* getStrings() {
-  const url = 'http://localhost:3000';
+  const url = 'http://localhost:3000/strings';
   console.log('We in here?');
 
   try {

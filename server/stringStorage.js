@@ -4,12 +4,12 @@ const strings = ['test', 'welcome'];
 const addString = (req, res) => {
   const stringToAdd = req.body;
   strings.push(stringToAdd);
-  res.send(201);
+  res.sendStatus(201);
 };
 
 // Returns all strings to the user
 const getAllStrings = (req, res) => {
-  res.send(200).json(strings);
+  res.status(200).json(strings);
 };
 
 module.exports = {

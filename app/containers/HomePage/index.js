@@ -54,7 +54,7 @@ const withReducer = injectReducer({ key: 'homepage', reducer });
  * Inject sagas here
  *
  */
-const withSaga = injectSaga({ key: 'homepage', saga })
+const withSaga = injectSaga({ key: 'homepage', saga });
 
 HomePage.propTypes = {
   loadStrings: PropTypes.func,
