@@ -5,14 +5,24 @@
  *
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FormattedMessage } from 'react-intl';
-import styled from 'styled-components';
+import injectReducer from 'utils/injectReducer';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import PropTypes from 'prop-types';
+import reducer from './reducer';
+import * as actions from './actions';
 import messages from './messages';
+import { HomeWrapper } from './HomeWrapper';
 
 import StringDisplay from '../../components/StringDisplay/StringDisplay';
 
-export default function HomePage() {
+const HomePage = props => {
+  useEffect(() => {
+    props.loadStrings();
+  }, []);
+
   return (
     <HomeWrapper>
       <h1>
@@ -21,13 +31,32 @@ export default function HomePage() {
       <StringDisplay />
     </HomeWrapper>
   );
-}
+};
 
-const HomeWrapper = styled.div`
-  width: 100%;
-  height: auto;
-  border: 1px solid red;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-`;
+const mapStateToProps = state => ({
+  header: state.homepage.strings,
+});
+
+const mapDispatchToProps = dispatch => ({
+  loadStrings: () => dispatch(actions.loadStrings()),
+});
+
+const withConnect = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+);
+
+const withReducer = injectReducer({ key: 'homepage', reducer });
+
+/**
+ * Inject sagas here
+ *
+ */
+HomePage.propTypes = {
+  loadStrings: PropTypes.func,
+};
+
+export default compose(
+  withReducer,
+  withConnect,
+)(HomePage);
