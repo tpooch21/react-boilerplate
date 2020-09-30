@@ -1,23 +1,16 @@
 import React from 'react';
-import styled from 'styled-components';
+import { StringGridWrapper } from './StringGridWrapper';
 
-import String from './String/String';
+import String from './String/index';
 
 const strings = ['Welcome', 'To', 'Our', 'First', 'Display', 'Example'];
 
 const stringDisplay = () => (
-  <StringGrid>
+  <StringGridWrapper>
     {strings.map(str => (
       <String key={str} str={str} />
     ))}
-  </StringGrid>
+  </StringGridWrapper>
 );
-
-const StringGrid = styled.div`
-  width: 750px;
-  height: auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-`;
 
 export default stringDisplay;

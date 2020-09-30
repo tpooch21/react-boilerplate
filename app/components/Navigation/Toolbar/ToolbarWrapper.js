@@ -1,15 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
 
-import NavigationItems from '../NavigationItems/NavigationItems';
-
-const toolbar = () => (
-  <ToolbarWrapper>
-    <NavigationItems />
-  </ToolbarWrapper>
-);
-
-const ToolbarWrapper = styled.div`
+export const ToolbarWrapper = styled.div`
   width: 100%;
   height: 50px;
   position: fixed;
@@ -21,5 +12,3 @@ const ToolbarWrapper = styled.div`
   background: #cc99ff;
   border-bottom: 2px solid black;
 `;
-
-export default toolbar;

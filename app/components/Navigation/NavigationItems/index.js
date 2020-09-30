@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import styled from 'styled-components';
+import { NavItemList } from './NavItemList';
+import { NavItem } from './NavItem';
 
 const navigationItems = () => (
   <NavItemList>
@@ -17,21 +18,5 @@ const navigationItems = () => (
     </NavItem>
   </NavItemList>
 );
-
-const NavItemList = styled.ul`
-  list-style: none;
-  display: flex;
-  flex-flow: row;
-  align-items: center;
-  width: auto;
-`;
-
-const NavItem = styled.li`
-  margin: 0 5px;
-  background-color: black;
-  color: white;
-  padding: 5px 5px;
-  border-radius: 3px;
-`;
 
 export default navigationItems;

@@ -18,7 +18,7 @@ import messages from './messages';
 import saga from './saga';
 import { HomeWrapper } from './HomeWrapper';
 
-import StringDisplay from '../../components/StringDisplay/StringDisplay';
+import StringDisplay from '../../components/StringDisplay/index';
 
 const HomePage = props => {
   useEffect(() => {
