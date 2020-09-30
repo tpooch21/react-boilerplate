@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`homePageReducer handles the loadStrings action 1`] = `
+Object {
+  "error": false,
+  "loading": true,
+}
+`;
+
+exports[`homePageReducer handles the loadStringsError action 1`] = `
+Object {
+  "error": true,
+  "loading": false,
+}
+`;
+
+exports[`homePageReducer handles the loadStringsSuccess action 1`] = `
+Object {
+  "error": false,
+  "loading": false,
+  "strings": Array [
+    "welcome",
+  ],
+}
+`;
+
+exports[`homePageReducer should return the initial state 1`] = `
+Object {
+  "error": false,
+  "loading": false,
+  "strings": Array [],
+}
+`;

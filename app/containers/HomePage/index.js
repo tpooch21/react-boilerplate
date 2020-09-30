@@ -50,10 +50,6 @@ const withConnect = connect(
 
 const withReducer = injectReducer({ key: 'homepage', reducer });
 
-/**
- * Inject sagas here
- *
- */
 const withSaga = injectSaga({ key: 'homepage', saga });
 
 HomePage.propTypes = {

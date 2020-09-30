@@ -7,4 +7,5 @@ export const StringWrapper = styled.div`
   border: 1px solid black;
   border-radius: 3px;
   text-align: center;
+  background: linear-gradient(150deg, #fff, #fff, #fff, #cc99ff);
 `;
