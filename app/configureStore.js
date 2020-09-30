@@ -7,6 +7,10 @@ import { routerMiddleware } from 'connected-react-router';
 import createSagaMiddleware from 'redux-saga';
 import createReducer from './reducers';
 
+/**
+ * IMPORT custom reducers, and combine them in an object, that will then be passed to createReducer
+ */
+
 export default function configureStore(initialState = {}, history) {
   let composeEnhancers = compose;
   const reduxSagaMonitorOptions = {};

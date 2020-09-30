@@ -16,7 +16,6 @@ const stringDisplay = () => (
 const StringGrid = styled.div`
   width: 750px;
   height: auto;
-  border: 1px solid black;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 `;
