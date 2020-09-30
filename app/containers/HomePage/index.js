@@ -17,6 +17,7 @@ import * as actions from './actions';
 import messages from './messages';
 import saga from './saga';
 import { HomeWrapper } from './HomeWrapper';
+import Spinner from '../../components/Spinner/index';
 
 import StringDisplay from '../../components/StringDisplay/index';
 
@@ -30,13 +31,15 @@ const HomePage = props => {
       <h1>
         <FormattedMessage {...messages.header} />
       </h1>
-      <StringDisplay strings={props.strings} />
+      {props.loading ? <Spinner /> : <StringDisplay strings={props.strings} />}
     </HomeWrapper>
   );
 };
 
 const mapStateToProps = state => ({
   strings: state.homepage.strings,
+  loading: state.homepage.loading,
+  error: state.homepage.error,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -55,6 +58,8 @@ const withSaga = injectSaga({ key: 'homepage', saga });
 HomePage.propTypes = {
   loadStrings: PropTypes.func,
   strings: PropTypes.array,
+  loading: PropTypes.bool,
+  error: PropTypes.bool,
 };
 
 export default compose(
