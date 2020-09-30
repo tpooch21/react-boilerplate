@@ -1,16 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StringGridWrapper } from './StringGridWrapper';
 
 import String from './String/index';
 
-const strings = ['Welcome', 'To', 'Our', 'First', 'Display', 'Example'];
-
-const stringDisplay = () => (
+const stringDisplay = props => (
   <StringGridWrapper>
-    {strings.map(str => (
+    {props.strings.map(str => (
       <String key={str} str={str} />
     ))}
   </StringGridWrapper>
 );
+
+stringDisplay.propTypes = {
+  strings: PropTypes.array,
+};
 
 export default stringDisplay;

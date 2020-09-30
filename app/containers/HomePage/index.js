@@ -30,13 +30,13 @@ const HomePage = props => {
       <h1>
         <FormattedMessage {...messages.header} />
       </h1>
-      <StringDisplay />
+      <StringDisplay strings={props.strings} />
     </HomeWrapper>
   );
 };
 
 const mapStateToProps = state => ({
-  header: state.homepage.strings,
+  strings: state.homepage.strings,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -58,6 +58,7 @@ const withSaga = injectSaga({ key: 'homepage', saga });
 
 HomePage.propTypes = {
   loadStrings: PropTypes.func,
+  strings: PropTypes.array,
 };
 
 export default compose(

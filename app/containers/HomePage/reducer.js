@@ -1,6 +1,10 @@
 import produce from 'immer';
 
-import { LOAD_STRINGS, LOAD_STRINGS_SUCCESS } from './constants';
+import {
+  LOAD_STRINGS,
+  LOAD_STRINGS_SUCCESS,
+  LOAD_STRINGS_ERROR,
+} from './constants';
 
 export const initialState = {
   strings: [],
@@ -19,6 +23,10 @@ const homePageReducer = (state = initialState, action) =>
         draft.loading = false;
         draft.error = false;
         draft.strings = action.strings;
+        break;
+      case LOAD_STRINGS_ERROR:
+        draft.loading = false;
+        draft.error = true;
         break;
     }
   });
