@@ -24,6 +24,7 @@ import {
   makeSelectLoading,
 } from './selectors';
 
+import ErrorMessage from '../../components/ErrorMessage/index';
 import StringDisplay from '../../components/StringDisplay/index';
 
 const HomePage = props => {
@@ -33,9 +34,10 @@ const HomePage = props => {
 
   return (
     <HomeWrapper>
-      <h1>
+      <h2>
         <FormattedMessage {...messages.header} />
-      </h1>
+      </h2>
+      <ErrorMessage show={props.error} />
       <StringDisplay strings={props.strings} loading={props.loading} />
     </HomeWrapper>
   );

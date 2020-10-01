@@ -4,10 +4,19 @@ import { StringGridWrapper } from './StringGridWrapper';
 
 import Spinner from '../Spinner/index';
 import String from './String/index';
+import P from '../P/index';
 
 const stringDisplay = props => {
   if (props.loading) {
     return <Spinner />;
+  }
+
+  if (props.strings.length === 0) {
+    return (
+      <P>
+        <em>Add a word or phrase on the Add String page to get started!</em>
+      </P>
+    );
   }
 
   return (

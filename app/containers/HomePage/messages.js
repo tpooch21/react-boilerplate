@@ -10,6 +10,6 @@ export const scope = 'app.containers.HomePage';
 export default defineMessages({
   header: {
     id: `${scope}.header`,
-    defaultMessage: 'String Displayer',
+    defaultMessage: 'View Your Words and Phrases Below',
   },
 });

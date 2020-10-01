@@ -1,4 +1,4 @@
-const strings = ['test', 'welcome', 'hello'];
+const strings = [];
 
 // Adds a user-input string to the array
 const addString = (req, res) => {

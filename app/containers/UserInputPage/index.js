@@ -18,36 +18,49 @@ import {
   makeSelectLoading,
   makeSelectError,
 } from './selectors';
+import Spinner from '../../components/Spinner/index';
+import P from '../../components/P/index';
+import ErrorMessage from '../../components/ErrorMessage/index';
 
-const pStyles = {
-  color: '#aaa',
-  borderBottom: '1px dotted #ccc',
+const UserInputPage = props => {
+  let formOutput = <Spinner />;
+  if (!props.loading) {
+    formOutput = (
+      <Form onSubmit={props.handleSubmit}>
+        <Input
+          placeholder="Enter word or phrase here"
+          value={props.inputVal}
+          onChange={props.changeInput}
+        />
+        <Submit type="submit" value="Submit" />
+      </Form>
+    );
+  }
+
+  if (props.error) {
+    formOutput = <ErrorMessage show={props.error} />;
+  }
+
+  return (
+    <InputWrapper>
+      <h2>Input a word or phrase to add to the grid!</h2>
+      {formOutput}
+      <P>
+        <em>
+          Once your word or phrase has been submitted, return to the home page
+          to see it displayed!
+        </em>
+      </P>
+    </InputWrapper>
+  );
 };
-
-const UserInputPage = props => (
-  <InputWrapper>
-    <h2>Input a word or phrase to add to the grid!</h2>
-    <Form onSubmit={props.handleSubmit}>
-      <Input
-        placeholder="Enter word or phrase here"
-        value={props.inputVal}
-        onChange={props.changeInput}
-      />
-      <Submit type="submit" value="Submit" />
-    </Form>
-    <p style={pStyles}>
-      <em>
-        Once your word or phrase has been submitted, return to the home page to
-        see it displayed!
-      </em>
-    </p>
-  </InputWrapper>
-);
 
 UserInputPage.propTypes = {
   inputVal: PropTypes.string,
   changeInput: PropTypes.func,
   handleSubmit: PropTypes.func,
+  loading: PropTypes.bool,
+  error: PropTypes.bool,
 };
 
 const mapStateToProps = createStructuredSelector({

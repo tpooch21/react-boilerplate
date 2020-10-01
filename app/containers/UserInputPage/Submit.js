@@ -8,4 +8,5 @@ export const Submit = styled.input`
   background: black;
   color: white;
   margin: 15px auto;
+  cursor: pointer;
 `;
