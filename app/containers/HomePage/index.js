@@ -16,8 +16,7 @@ import reducer from './reducer';
 import * as actions from './actions';
 import messages from './messages';
 import saga from './saga';
-import { HomeWrapper } from './HomeWrapper';
-import Spinner from '../../components/Spinner/index';
+import HomeWrapper from '../../components/Wrapper/index';
 
 import StringDisplay from '../../components/StringDisplay/index';
 
@@ -31,7 +30,7 @@ const HomePage = props => {
       <h1>
         <FormattedMessage {...messages.header} />
       </h1>
-      {props.loading ? <Spinner /> : <StringDisplay strings={props.strings} />}
+      <StringDisplay strings={props.strings} loading={props.loading} />
     </HomeWrapper>
   );
 };

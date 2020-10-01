@@ -11,6 +11,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import HomePage from 'containers/HomePage/Loadable';
+import UserInputPage from 'containers/UserInputPage/index';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Toolbar from '../../components/Navigation/Toolbar/index';
 
@@ -23,6 +24,7 @@ export default function App() {
       <main style={{ marginTop: '60px' }}>
         <Switch>
           <Route exact path="/" component={HomePage} />
+          <Route path="/input" component={UserInputPage} />
           <Route component={NotFoundPage} />
         </Switch>
       </main>

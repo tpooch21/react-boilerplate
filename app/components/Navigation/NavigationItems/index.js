@@ -12,7 +12,7 @@ const navigationItems = () => (
       </NavLink>
     </NavItem>
     <NavItem>
-      <NavLink to="/x" style={{ color: 'white', textDecoration: 'none' }}>
+      <NavLink to="/input" style={{ color: 'white', textDecoration: 'none' }}>
         Add String
       </NavLink>
     </NavItem>
