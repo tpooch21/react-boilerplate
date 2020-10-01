@@ -27,6 +27,7 @@ const inputReducer = (state = initialState, action) =>
       case SUBMIT_STRING_SUCCESS:
         draft.loading = false;
         draft.error = false;
+        draft.currentString = '';
         break;
       case SUBMIT_STRING_ERROR:
         draft.loading = false;

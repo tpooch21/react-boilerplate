@@ -2,6 +2,7 @@ import React from 'react';
 
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
+import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import PropTypes from 'prop-types';
@@ -12,6 +13,16 @@ import { Submit } from './Submit';
 import reducer from './reducer';
 import saga from './saga';
 import * as actions from './actions';
+import {
+  makeSelectInput,
+  makeSelectLoading,
+  makeSelectError,
+} from './selectors';
+
+const pStyles = {
+  color: '#aaa',
+  borderBottom: '1px dotted #ccc',
+};
 
 const UserInputPage = props => (
   <InputWrapper>
@@ -24,6 +35,12 @@ const UserInputPage = props => (
       />
       <Submit type="submit" value="Submit" />
     </Form>
+    <p style={pStyles}>
+      <em>
+        Once your word or phrase has been submitted, return to the home page to
+        see it displayed!
+      </em>
+    </p>
   </InputWrapper>
 );
 
@@ -33,8 +50,10 @@ UserInputPage.propTypes = {
   handleSubmit: PropTypes.func,
 };
 
-const mapStateToProps = state => ({
-  inputVal: state.userinput.currentString,
+const mapStateToProps = createStructuredSelector({
+  inputVal: makeSelectInput(),
+  loading: makeSelectLoading(),
+  error: makeSelectError(),
 });
 
 const mapDispatchToProps = dispatch => ({

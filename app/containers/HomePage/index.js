@@ -12,11 +12,17 @@ import injectSaga from 'utils/injectSaga';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import PropTypes from 'prop-types';
+import { createStructuredSelector } from 'reselect';
 import reducer from './reducer';
 import * as actions from './actions';
 import messages from './messages';
 import saga from './saga';
 import HomeWrapper from '../../components/Wrapper/index';
+import {
+  makeSelectError,
+  makeSelectStrings,
+  makeSelectLoading,
+} from './selectors';
 
 import StringDisplay from '../../components/StringDisplay/index';
 
@@ -35,10 +41,10 @@ const HomePage = props => {
   );
 };
 
-const mapStateToProps = state => ({
-  strings: state.homepage.strings,
-  loading: state.homepage.loading,
-  error: state.homepage.error,
+const mapStateToProps = createStructuredSelector({
+  strings: makeSelectStrings(),
+  error: makeSelectError(),
+  loading: makeSelectLoading(),
 });
 
 const mapDispatchToProps = dispatch => ({
