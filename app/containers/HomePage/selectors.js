@@ -2,7 +2,7 @@ import { createSelector } from 'reselect';
 import { initialState } from './reducer';
 
 // Slice state properties that concern HomePage
-const selectHomePage = state => state.homepage || initialState;
+export const selectHomePage = state => state.homepage || initialState;
 
 export const makeSelectStrings = () =>
   createSelector(
