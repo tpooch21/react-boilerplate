@@ -14,7 +14,7 @@ const StringDisplay = props => {
   if (props.strings.length === 0) {
     return (
       <P>
-        <em>Add a word or phrase on the Add String page to get started!</em>
+        <em>Add a word or phrase on the Add Word page to get started!</em>
       </P>
     );
   }
