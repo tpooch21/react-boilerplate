@@ -14,7 +14,7 @@ const NavigationItems = props => (
     </NavItem>
     <NavItem side={props.side}>
       <NavLink to="/input" style={{ color: 'white', textDecoration: 'none' }}>
-        Add String
+        Add Word
       </NavLink>
     </NavItem>
   </NavItemList>
