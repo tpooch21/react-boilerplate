@@ -8,4 +8,5 @@ export const StringWrapper = styled.div`
   border-radius: 3px;
   text-align: center;
   background: linear-gradient(150deg, #fff, #fff, #fff, #cc99ff);
+  font-size: 16px;
 `;

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StringGridWrapper } from './StringGridWrapper';
+import './StringGridWrapper.css';
 
 import Spinner from '../Spinner/index';
 import String from './String/index';
@@ -20,11 +20,11 @@ const StringDisplay = props => {
   }
 
   return (
-    <StringGridWrapper>
+    <div className="stringGridWrapper">
       {props.strings.map(str => (
         <String key={str.id} str={str.value} />
       ))}
-    </StringGridWrapper>
+    </div>
   );
 };
 

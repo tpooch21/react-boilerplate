@@ -20,6 +20,7 @@ import P from '../../components/P/index';
 const UserInputPage = props => {
   const [inputIsValid, toggleInputValidity] = useState(true);
 
+  // Gets rid of 'invalid string' message when user starts typing again
   useEffect(() => {
     if (props.inputVal !== '') toggleInputValidity(true);
   }, [props.inputVal]);
@@ -83,10 +84,7 @@ const mapStateToProps = createStructuredSelector({
 
 const mapDispatchToProps = dispatch => ({
   changeInput: evt => dispatch(actions.enterString(evt.target.value)),
-  handleSubmit: evt => {
-    if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-    dispatch(actions.submitString());
-  },
+  handleSubmit: () => dispatch(actions.submitString()),
 });
 
 const withConnect = connect(
