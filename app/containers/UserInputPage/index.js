@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
@@ -18,12 +18,19 @@ import Spinner from '../../components/Spinner/index';
 import P from '../../components/P/index';
 
 const UserInputPage = props => {
+  const [inputIsValid, toggleInputValidity] = useState(true);
+
+  useEffect(() => {
+    if (props.inputVal !== '') toggleInputValidity(true);
+  }, [props.inputVal]);
+
   let formOutput = <Spinner />;
   if (!props.loading) {
     formOutput = (
       <Form
-        onSubmit={() => {
-          if (!props.inputVal) alert('Please enter a word or phrase');
+        onSubmit={evt => {
+          evt.preventDefault();
+          if (!props.inputVal) toggleInputValidity(false);
           else props.handleSubmit();
         }}
       >
@@ -37,16 +44,27 @@ const UserInputPage = props => {
     );
   }
 
+  let message = (
+    <P>
+      <em>
+        Once your word or phrase has been submitted, return to the home page to
+        see it displayed!
+      </em>
+    </P>
+  );
+  if (!inputIsValid) {
+    message = (
+      <P invalid>
+        <em>Word or phrase cannot be empty</em>
+      </P>
+    );
+  }
+
   return (
     <InputWrapper>
       <h2>Input a word or phrase to add to the grid!</h2>
       {formOutput}
-      <P>
-        <em>
-          Once your word or phrase has been submitted, return to the home page
-          to see it displayed!
-        </em>
-      </P>
+      {message}
     </InputWrapper>
   );
 };
