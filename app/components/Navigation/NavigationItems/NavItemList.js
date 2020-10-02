@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const NavItemList = styled.ul`
   list-style: none;
   display: flex;
-  flex-flow: row;
-  align-items: center;
+  flex-flow: ${props => (props.side ? 'column' : 'row')};
+  align-items: ${props => (props.side ? 'flex-start' : 'center')};
   width: auto;
 `;
