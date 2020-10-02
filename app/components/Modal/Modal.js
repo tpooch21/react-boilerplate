@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 // Conditionally display modal based on error state, passed from parent as 'show' prop
-const Modal = styled.div`
+const ModalWrapper = styled.div`
   width: 50%;
   height: 70px;
   background: #fff;
@@ -13,4 +13,4 @@ const Modal = styled.div`
   display: ${props => (props.show ? 'block' : 'none')};
 `;
 
-export default Modal;
+export default ModalWrapper;

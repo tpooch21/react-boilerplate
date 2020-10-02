@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import Backdrop from '../Backdrop/index';
 import Modal from '../Modal/index';
 
-const errorMessage = props => (
-  <Backdrop show={props.show}>
-    <Modal show={props.show} />
-  </Backdrop>
-);
+const ErrorMessage = props => {
+  // component should only re-render when error is thrown (or resolved)
+  useEffect(() => {}, [props.show]);
 
-errorMessage.propTypes = {
-  show: PropTypes.bool,
+  return (
+    <Backdrop show={props.show} onClick={props.onClick}>
+      <Modal show={props.show} />
+    </Backdrop>
+  );
 };
 
-export default errorMessage;
+ErrorMessage.propTypes = {
+  show: PropTypes.bool,
+  onClick: PropTypes.func,
+};
+
+export default ErrorMessage;

@@ -18,13 +18,8 @@ import * as actions from './actions';
 import messages from './messages';
 import saga from './saga';
 import HomeWrapper from '../../components/Wrapper/index';
-import {
-  makeSelectError,
-  makeSelectStrings,
-  makeSelectLoading,
-} from './selectors';
+import { makeSelectStrings, makeSelectLoading } from './selectors';
 
-import ErrorMessage from '../../components/ErrorMessage/index';
 import StringDisplay from '../../components/StringDisplay/index';
 
 const HomePage = props => {
@@ -37,7 +32,6 @@ const HomePage = props => {
       <h2>
         <FormattedMessage {...messages.header} />
       </h2>
-      <ErrorMessage show={props.error} />
       <StringDisplay strings={props.strings} loading={props.loading} />
     </HomeWrapper>
   );
@@ -45,7 +39,6 @@ const HomePage = props => {
 
 const mapStateToProps = createStructuredSelector({
   strings: makeSelectStrings(),
-  error: makeSelectError(),
   loading: makeSelectLoading(),
 });
 
@@ -66,7 +59,6 @@ HomePage.propTypes = {
   loadStrings: PropTypes.func,
   strings: PropTypes.array,
   loading: PropTypes.bool,
-  error: PropTypes.bool,
 };
 
 export default compose(

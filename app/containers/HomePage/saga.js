@@ -9,6 +9,9 @@ export function* getStrings() {
 
   try {
     const strings = yield call(axiosReq, url);
+
+    // Avoids updating state with HTML string if endpoint is incorrect
+    if (!Array.isArray(strings)) throw new Error();
     yield put(loadStringsSuccess(strings));
   } catch (err) {
     yield put(loadStringsError());

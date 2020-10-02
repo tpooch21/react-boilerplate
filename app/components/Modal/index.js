@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Modal from './Modal';
+import ModalWrapper from './Modal';
 
-const modal = props => (
-  <Modal show={props.show}>
+const Modal = props => (
+  <ModalWrapper show={props.show}>
     <p style={{ lineHeight: '30px' }}>Network Error</p>
-  </Modal>
+  </ModalWrapper>
 );
 
-modal.propTypes = {
+Modal.propTypes = {
   show: PropTypes.bool,
 };
 
-export default modal;
+export default Modal;

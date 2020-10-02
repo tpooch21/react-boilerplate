@@ -13,11 +13,11 @@ const h1Style = {
   margin: '4px 0',
 };
 
-const toolbar = () => (
+const Toolbar = () => (
   <ToolbarWrapper>
     <NavigationItems />
     <h1 style={h1Style}>String Displayer</h1>
   </ToolbarWrapper>
 );
 
-export default toolbar;
+export default Toolbar;

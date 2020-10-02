@@ -3,7 +3,11 @@ const strings = [];
 // Adds a user-input string to the array
 const addString = (req, res) => {
   const stringToAdd = req.body.data;
-  strings.push(stringToAdd);
+  const id = Date.now();
+  strings.push({
+    value: stringToAdd,
+    id,
+  });
   res.sendStatus(201);
 };
 

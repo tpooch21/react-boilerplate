@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StringWrapper } from './StringWrapper';
 
-const string = props => (
+const String = props => (
   <StringWrapper>
     <p>{props.str}</p>
   </StringWrapper>
 );
 
-string.propTypes = {
+String.propTypes = {
   str: PropTypes.string,
 };
 
-export default string;
+export default String;

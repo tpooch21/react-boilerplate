@@ -13,20 +13,20 @@ import { Submit } from './Submit';
 import reducer from './reducer';
 import saga from './saga';
 import * as actions from './actions';
-import {
-  makeSelectInput,
-  makeSelectLoading,
-  makeSelectError,
-} from './selectors';
+import { makeSelectInput, makeSelectLoading } from './selectors';
 import Spinner from '../../components/Spinner/index';
 import P from '../../components/P/index';
-import ErrorMessage from '../../components/ErrorMessage/index';
 
 const UserInputPage = props => {
   let formOutput = <Spinner />;
   if (!props.loading) {
     formOutput = (
-      <Form onSubmit={props.handleSubmit}>
+      <Form
+        onSubmit={() => {
+          if (!props.inputVal) alert('Please enter a word or phrase');
+          else props.handleSubmit();
+        }}
+      >
         <Input
           placeholder="Enter word or phrase here"
           value={props.inputVal}
@@ -35,10 +35,6 @@ const UserInputPage = props => {
         <Submit type="submit" value="Submit" />
       </Form>
     );
-  }
-
-  if (props.error) {
-    formOutput = <ErrorMessage show={props.error} />;
   }
 
   return (
@@ -60,13 +56,11 @@ UserInputPage.propTypes = {
   changeInput: PropTypes.func,
   handleSubmit: PropTypes.func,
   loading: PropTypes.bool,
-  error: PropTypes.bool,
 };
 
 const mapStateToProps = createStructuredSelector({
   inputVal: makeSelectInput(),
   loading: makeSelectLoading(),
-  error: makeSelectError(),
 });
 
 const mapDispatchToProps = dispatch => ({

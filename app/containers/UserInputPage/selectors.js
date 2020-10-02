@@ -9,7 +9,7 @@ const makeSelectInput = () =>
     inputState => inputState.currentString,
   );
 
-const makeSelectError = () =>
+const makeInputSelectError = () =>
   createSelector(
     selectUserInput,
     inputState => inputState.error,
@@ -21,4 +21,4 @@ const makeSelectLoading = () =>
     inputState => inputState.loading,
   );
 
-export { makeSelectInput, makeSelectLoading, makeSelectError };
+export { makeSelectInput, makeSelectLoading, makeInputSelectError };

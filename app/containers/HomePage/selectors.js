@@ -16,7 +16,7 @@ export const makeSelectLoading = () =>
     homeState => homeState.loading,
   );
 
-export const makeSelectError = () =>
+export const makeHomeSelectError = () =>
   createSelector(
     selectHomePage,
     homeState => homeState.error,

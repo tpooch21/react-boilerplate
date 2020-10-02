@@ -6,7 +6,7 @@ import Spinner from '../Spinner/index';
 import String from './String/index';
 import P from '../P/index';
 
-const stringDisplay = props => {
+const StringDisplay = props => {
   if (props.loading) {
     return <Spinner />;
   }
@@ -22,15 +22,15 @@ const stringDisplay = props => {
   return (
     <StringGridWrapper>
       {props.strings.map(str => (
-        <String key={str} str={str} />
+        <String key={str.id} str={str.value} />
       ))}
     </StringGridWrapper>
   );
 };
 
-stringDisplay.propTypes = {
+StringDisplay.propTypes = {
   strings: PropTypes.array,
   loading: PropTypes.bool,
 };
 
-export default stringDisplay;
+export default StringDisplay;

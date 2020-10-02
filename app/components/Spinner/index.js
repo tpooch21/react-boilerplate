@@ -1,7 +1,7 @@
 import React from 'react';
 import './Spinner.css';
 
-const spinner = () => (
+const Spinner = () => (
   <div className="spinner">
     <div className="rect1" />
     <div className="rect2" />
@@ -11,4 +11,4 @@ const spinner = () => (
   </div>
 );
 
-export default spinner;
+export default Spinner;

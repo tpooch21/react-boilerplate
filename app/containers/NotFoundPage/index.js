@@ -9,11 +9,14 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import messages from './messages';
+import NotFoundWrapper from '../../components/Wrapper/index';
 
 export default function NotFound() {
   return (
-    <h1>
-      <FormattedMessage {...messages.header} />
-    </h1>
+    <NotFoundWrapper>
+      <h2>
+        <FormattedMessage {...messages.header} />
+      </h2>
+    </NotFoundWrapper>
   );
 }
